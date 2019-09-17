@@ -7,7 +7,7 @@ let initialState = {
 }
 
 
-const usersReducer = (state = initialState, action) => {
+const postsReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_POSTS: {
             return { ...state, posts: action.posts }
@@ -25,4 +25,4 @@ const usersReducer = (state = initialState, action) => {
 export const setPostsAC = (posts) => ({ type: SET_POSTS, posts });
 export const setCommentsAC = (comments) => ({ type: SET_COMMENTS, comments });
 
-export default usersReducer;
+export default postsReducer;
