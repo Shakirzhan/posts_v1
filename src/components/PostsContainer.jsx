@@ -17,9 +17,21 @@ class PostsContainer extends React.Component {
                 });
     }
     render() {
+        let posts = this.props.posts;
+        let newArr = {...posts};
+        for (let g in newArr) {
+            newArr[g].comments = [];
+        }
+
+        for(let k in this.props.comments) {
+            for (let i in posts) {
+                if (posts[i]["id"] === this.props.comments[k]["postId"]) {
+                    newArr[i]["comments"].push(this.props.comments[k]);
+                }
+            }
+        }
         return (
-            <Posts posts={this.props.posts}
-                   comments={this.props.comments} />
+            <Posts posts={this.props.posts} />
         );
     }
 }
